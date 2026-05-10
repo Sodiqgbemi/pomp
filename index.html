@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +88,7 @@
   .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.1; }
   .section-title span { display: block; color: var(--gold); font-style: italic; }
-  .section-link { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); padding-bottom: 2px; cursor: pointer; }
+  .section-link { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); padding-bottom: 2px; cursor: pointer; white-space: nowrap; }
  
   .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .product-card { background: var(--charcoal); border-radius: 4px; overflow: hidden; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.5); animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
@@ -98,7 +97,6 @@
   @keyframes skeleton { 0%, 100% { background-color: rgba(201,168,76,0.1); } 50% { background-color: rgba(201,168,76,0.2); } }
   .product-card.skeleton { animation: skeleton 1.5s infinite; background: rgba(201,168,76,0.15); }
  
-  /* IMAGE PLACEHOLDER */
   .product-img { height: 240px; position: relative; overflow: hidden; background: #181818; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.6s ease-out; }
   .img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; border: 1.5px dashed rgba(201,168,76,0.25); position: absolute; inset: 0; transition: border-color 0.2s; }
   .product-card:hover .img-placeholder { border-color: rgba(201,168,76,0.5); }
@@ -113,7 +111,7 @@
   .product-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); }
   .product-price { font-size: 1.1rem; font-weight: 500; color: var(--gold); }
   .product-price del { font-size: 0.8rem; color: var(--muted); margin-right: 6px; font-weight: 400; }
-  .add-btn { background: none; border: 1px solid rgba(201,168,76,0.4); color: var(--gold); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .add-btn { background: none; border: 1px solid rgba(201,168,76,0.4); color: var(--gold); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
   .add-btn:hover { background: var(--gold); color: var(--black); }
   .rating { display: flex; gap: 2px; margin-bottom: 0.3rem; }
   .star { color: var(--gold); font-size: 0.7rem; }
@@ -125,18 +123,17 @@
   .feature-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
   .feature-desc { font-size: 0.82rem; color: rgba(249,246,241,0.5); line-height: 1.6; }
  
-  /* AI STRIP */
   .ai-strip { background: linear-gradient(135deg, #141410, #0f0f0f); border: 1px solid rgba(201,168,76,0.25); margin: 0 5rem; border-radius: 6px; padding: 3rem 3.5rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem; }
   .ai-strip-left { flex: 1; }
   .ai-strip-left h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.6rem; }
   .ai-strip-left h3 em { color: var(--gold); font-style: italic; }
   .ai-strip-left p { color: rgba(249,246,241,0.55); font-size: 0.9rem; line-height: 1.6; max-width: 420px; margin-bottom: 1.2rem; }
   .ai-input-row { display: flex; gap: 0.6rem; max-width: 480px; }
-  .ai-input { flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(201,168,76,0.3); color: var(--white); padding: 0.7rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; border-radius: 2px; outline: none; }
+  .ai-input { flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(201,168,76,0.3); color: var(--white); padding: 0.7rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; border-radius: 2px; outline: none; min-width: 0; }
   .ai-input::placeholder { color: rgba(249,246,241,0.3); }
   .ai-input:focus { border-color: var(--gold); }
   .ai-input:disabled { opacity: 0.5; }
-  .ai-send { background: var(--gold); border: none; color: var(--black); padding: 0.7rem 1.2rem; cursor: pointer; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s; white-space: nowrap; }
+  .ai-send { background: var(--gold); border: none; color: var(--black); padding: 0.7rem 1.2rem; cursor: pointer; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s; white-space: nowrap; flex-shrink: 0; }
   .ai-send:hover { background: var(--gold-light); }
   .ai-send:disabled { opacity: 0.5; cursor: not-allowed; }
   .ai-chip-label { font-size: 0.7rem; color: rgba(249,246,241,0.4); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; }
@@ -173,7 +170,6 @@
   .cart-total { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 1rem; font-size: 1.2rem; color: var(--gold-light); }
   .empty-state { color: rgba(249,246,241,0.52); line-height: 1.7; padding: 1rem 0; }
  
-  /* AI CHAT WINDOW */
   .ai-chat { flex: 1; max-width: 420px; }
   .ai-chat-window { background: rgba(0,0,0,0.4); border: 1px solid rgba(201,168,76,0.15); border-radius: 6px; padding: 1.2rem; min-height: 180px; max-height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; }
   .chat-msg { display: flex; gap: 0.7rem; align-items: flex-start; }
@@ -201,14 +197,14 @@
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
   .footer-bottom p { font-size: 0.75rem; color: rgba(249,246,241,0.25); }
  
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
   .modal-overlay.active { display: flex; }
   .modal { background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(30,30,30,0.9) 100%); border: 1px solid rgba(201,168,76,0.2); border-radius: 6px; max-width: 700px; width: 90%; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
   .modal-img { background: #181818; display: flex; align-items: center; justify-content: center; min-height: 350px; position: relative; }
   .modal-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; border: 1.5px dashed rgba(201,168,76,0.25); position: absolute; inset: 0; }
   .modal-img-placeholder svg { width: 36px; height: 36px; opacity: 0.2; }
   .modal-img-placeholder span { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(201,168,76,0.35); text-align: center; }
-  .modal-info { padding: 2.5rem; }
+  .modal-info { padding: 2.5rem; overflow-y: auto; }
   .modal-brand { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
   .modal-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.1; }
   .modal-price { font-size: 1.5rem; font-weight: 500; color: var(--gold); margin-bottom: 1.5rem; }
@@ -223,46 +219,189 @@
   .toast { position: fixed; bottom: 2rem; right: 2rem; background: #1e1e1e; border: 1px solid rgba(201,168,76,0.4); color: var(--white); padding: 1rem 1.4rem; border-radius: 4px; font-size: 0.85rem; transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 300; display: flex; align-items: center; gap: 0.7rem; }
   .toast.show { transform: translateY(0); opacity: 1; }
   .toast-check { color: var(--gold); font-size: 1rem; }
- 
+
+  /* =============================================
+     TABLET: 768px – 980px
+     ============================================= */
   @media (max-width: 980px) {
-    nav { padding: 1rem 1.25rem; }
+    nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .hero-inner { grid-template-columns: 1fr; padding-top: 6.5rem; gap: 0.5rem; }
-    .hero-left { max-width: 720px; }
-    .hero-title { font-size: clamp(4rem, 16vw, 7rem); }
-    .hero-right { min-height: 50vh; }
-    .hero-shoe.primary { left: 18%; top: 10%; width: min(78vw, 560px); }
-    .hero-shoe.secondary { width: min(34vw, 250px); right: 2%; top: 0; }
-    .hero-shoe.tertiary { width: min(34vw, 240px); left: 2%; bottom: 2%; }
-    .hero-drop { top: -1.2rem; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding-top: 5.5rem;
+      padding-inline: 1.5rem;
+      padding-bottom: 3rem;
+      gap: 2rem;
+      min-height: unset;
+    }
+    .hero-left { max-width: 100%; }
+    .hero-title { font-size: clamp(3.8rem, 13vw, 6.5rem); }
+    .hero-right { min-height: 46vw; max-height: 420px; }
+    .hero-shoe.primary { left: 10%; top: 10%; width: min(72vw, 480px); }
+    .hero-shoe.secondary { width: min(36vw, 220px); right: 2%; top: 0; }
+    .hero-shoe.tertiary { width: min(32vw, 200px); left: 2%; bottom: 2%; }
+    .hero-drop { top: -0.5rem; left: 0; }
     .hero-stat { right: 0; bottom: 0; }
-    .products-grid, .features-grid { grid-template-columns: repeat(2, 1fr); }
-    .ai-strip { margin: 0 1.25rem; flex-direction: column; }
+
+    .section { padding: 4rem 2rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .features { padding: 4rem 2rem; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+    .ai-strip { margin: 0 1.5rem; flex-direction: column; padding: 2rem; gap: 2rem; }
+    .ai-chat { max-width: 100%; width: 100%; }
+
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    footer { padding: 3rem 2rem 2rem; margin-top: 4rem; }
   }
- 
+
+  /* =============================================
+     MOBILE: ≤ 640px
+     ============================================= */
   @media (max-width: 640px) {
-    .hero-inner { padding-inline: 1rem; padding-bottom: 4rem; }
-    .hero-title { font-size: clamp(3.7rem, 20vw, 5.4rem); }
-    .hero-subtitle { font-size: 0.96rem; }
-    .hero-ctas { align-items: stretch; }
-    .btn-primary, .btn-secondary { width: 100%; }
-    .hero-right { min-height: 44vh; }
-    .hero-shoe.primary { left: 4%; top: 18%; width: 94vw; }
-    .hero-shoe.secondary { width: 42vw; right: -8%; top: 2%; }
-    .hero-shoe.tertiary { width: 40vw; left: -7%; bottom: 0; }
+    /* NAV */
+    nav { padding: 1rem 1.25rem; }
+    .nav-logo { font-size: 1.6rem; }
+    .cart-btn { padding: 0.45rem 0.9rem; font-size: 0.75rem; }
+
+    /* HERO */
+    .hero { min-height: unset; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding-top: 5rem;
+      padding-inline: 1.25rem;
+      padding-bottom: 2.5rem;
+      gap: 1.5rem;
+    }
+    .hero-left { max-width: 100%; }
+    .hero-tag { font-size: 0.65rem; padding: 0.5rem 0.75rem; }
+    .hero-title { font-size: clamp(3.2rem, 18vw, 4.8rem); line-height: 0.82; margin-bottom: 1.2rem; }
+    .hero-subtitle { font-size: 0.92rem; margin-bottom: 1.5rem; }
+    .hero-ctas { flex-direction: column; gap: 0.75rem; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 0.9rem 1rem; }
+
+    .hero-right { min-height: 56vw; max-height: 300px; }
+    .hero-shoe.primary { left: 5%; top: 15%; width: 82vw; }
+    .hero-shoe.secondary { width: 38vw; right: -4%; top: 0; opacity: 0.75; }
+    .hero-shoe.tertiary { width: 35vw; left: -3%; bottom: 0; opacity: 0.65; }
     .hero-glass { display: none; }
-    .hero-giant-type { bottom: 13vh; font-size: 25vw; }
-    .section, .features, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .products-grid, .features-grid, .footer-top, .modal { grid-template-columns: 1fr; }
-    .app-page { padding: 4rem 1.25rem; }
-    .admin-layout, .cart-modal { grid-template-columns: 1fr; }
-    .cart-summary { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-left: 0; padding-top: 1rem; }
-    .cart-line { grid-template-columns: 58px 1fr; }
-    .qty-controls { grid-column: 2; }
+    .hero-giant-type { font-size: 28vw; bottom: 12vh; }
+    .hero-scroll { display: none; }
+
+    /* TICKER */
+    .ticker { padding: 0.5rem 0; }
+    .ticker-item { font-size: 0.68rem; }
+
+    /* SECTIONS */
+    .section { padding: 3rem 1.25rem; }
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .section-title { font-size: clamp(1.7rem, 6vw, 2.2rem); }
+
+    /* PRODUCT GRID */
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .product-img { height: 180px; }
+    .product-info { padding: 0.85rem; }
+    .product-name { font-size: 0.95rem; }
+    .product-price { font-size: 0.95rem; }
+    .product-footer { margin-top: 0.75rem; padding-top: 0.75rem; }
+
+    /* FEATURES */
+    .features { padding: 3rem 1.25rem; }
+    .features-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .feature { padding: 1.2rem 0.75rem; }
+    .feature-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .feature-title { font-size: 0.9rem; }
+    .feature-desc { font-size: 0.75rem; }
+
+    /* AI STRIP */
+    .ai-strip { margin: 0 1.25rem; padding: 1.5rem 1.25rem; gap: 1.5rem; border-radius: 4px; }
+    .ai-strip-left h3 { font-size: 1.4rem; }
+    .ai-strip-left p { font-size: 0.82rem; }
+    .ai-input-row { flex-direction: column; gap: 0.5rem; max-width: 100%; }
+    .ai-input { width: 100%; }
+    .ai-send { width: 100%; padding: 0.75rem; text-align: center; }
+    .ai-chat { max-width: 100%; width: 100%; }
+    .ai-chat-window { max-height: 240px; }
+
+    /* APP PAGE (VIEW ALL) */
+    .app-page { padding: 3.5rem 1.25rem; }
+    .page-title { font-size: clamp(2rem, 10vw, 3rem); }
+    .page-copy { font-size: 0.88rem; margin-bottom: 1.5rem; }
+    .page-actions { gap: 0.6rem; }
+    .page-actions .btn-secondary,
+    .page-actions .btn-primary { flex: 1; text-align: center; padding: 0.8rem 0.5rem; }
+
+    /* MODALS */
+    .modal-overlay { padding: 0.75rem; align-items: flex-end; }
+    .modal {
+      grid-template-columns: 1fr;
+      width: 100%;
+      max-width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 8px 8px 0 0;
+    }
+    .modal-img { min-height: 220px; }
+    .modal-info { padding: 1.5rem 1.25rem; }
+    .modal-name { font-size: 1.4rem; }
+    .modal-price { font-size: 1.2rem; margin-bottom: 1rem; }
+
+    /* CART MODAL */
+    .cart-modal {
+      grid-template-columns: 1fr;
+      max-height: 90vh;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px 8px 0 0;
+    }
+    .cart-summary {
+      border-left: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-left: 0;
+      padding-top: 1.25rem;
+    }
+    .cart-line { grid-template-columns: 58px 1fr; gap: 0.75rem; }
     .cart-thumb { width: 58px; height: 58px; }
+    .qty-controls { grid-column: 2; }
+
+    /* CHECKOUT FORM */
     .form-row { grid-template-columns: 1fr; }
-    .section-header, .footer-bottom { align-items: flex-start; flex-direction: column; gap: 1rem; }
-    .ai-input-row { flex-direction: column; }
+
+    /* ADMIN LAYOUT */
+    .admin-layout { grid-template-columns: 1fr; }
+
+    /* FOOTER */
+    footer { padding: 2.5rem 1.25rem 1.5rem; margin-top: 3rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-brand p { max-width: 100%; }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    /* TOAST */
+    .toast { left: 1rem; right: 1rem; bottom: 1rem; font-size: 0.8rem; padding: 0.85rem 1rem; }
+  }
+
+  /* =============================================
+     VERY SMALL: ≤ 380px
+     ============================================= */
+  @media (max-width: 380px) {
+    .hero-title { font-size: clamp(2.8rem, 20vw, 3.6rem); }
+    .products-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .product-img { height: 150px; }
+    .product-info { padding: 0.7rem; }
+    .product-name { font-size: 0.85rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -387,7 +526,6 @@
     <button class="btn-primary" onclick="openCart()">View Bag</button>
   </div>
   
-  <!-- SEARCH WITH AUTOCOMPLETE -->
   <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; position: relative;">
     <input type="text" id="searchInput" placeholder="🔍 Search shoes by name, brand, or style..." style="width: 100%; padding: 0.8rem 1rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(201,168,76,0.2); border-radius: 4px; color: var(--white); font-size: 0.9rem; outline: none;" oninput="handleSearchInput(this.value)" onkeydown="if(event.key==='Enter') searchProducts()">
     <div id="searchAutocomplete" style="display: none; position: absolute; top: 100%; left: 1.5rem; right: 1.5rem; background: rgba(0,0,0,0.8); border: 1px solid rgba(201,168,76,0.3); border-top: none; border-radius: 0 0 4px 4px; max-height: 200px; overflow-y: auto; z-index: 50;"></div>
@@ -395,17 +533,13 @@
     <div id="recentSearches" style="margin-top: 0.8rem; display: none;"><span style="color: rgba(249,246,241,0.4); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Recent:</span><div id="recentList" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;"></div></div>
   </div>
   
-  <!-- FILTERS & SORTING -->
   <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.045); border: 1px solid rgba(201,168,76,0.18); border-radius: 4px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-      <!-- PRICE RANGE SLIDER -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
       <div>
         <label style="display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(249,246,241,0.52); margin-bottom: 0.8rem;">Price Range: ₦<span id="priceMin">20000</span> - ₦<span id="priceMax">120000</span></label>
         <input type="range" id="priceSlider" min="20000" max="120000" value="120000" style="width: 100%; cursor: pointer;" oninput="updatePriceFilter(this.value)">
         <button class="btn-secondary" onclick="resetFilters()" style="margin-top: 0.8rem; font-size: 0.75rem; padding: 0.4rem 0.8rem;">Clear Filters</button>
       </div>
-      
-      <!-- SORTING -->
       <div>
         <label style="display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(249,246,241,0.52); margin-bottom: 0.8rem;">Sort By</label>
         <select id="sortSelect" onchange="applySort(this.value)" style="width: 100%; padding: 0.6rem; background: rgba(0,0,0,0.32); border: 1px solid rgba(201,168,76,0.26); border-radius: 4px; color: var(--white); font-family: 'DM Sans', sans-serif; cursor: pointer;">
@@ -415,8 +549,6 @@
           <option value="rated">Best Rated</option>
         </select>
       </div>
-      
-      <!-- ACTIVE FILTERS DISPLAY -->
       <div id="activeFiltersDisplay" style="display: none; grid-column: 1/-1;"></div>
     </div>
   </div>
@@ -432,7 +564,7 @@
     <div class="footer-col"><h5>Company</h5><ul><li><a>Our Story</a></li><li><a>Careers</a></li><li><a>Press</a></li><li><a>Sustainability</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© {date} POMP Footwear. All rights reserved.</p>
+    <p>© 2026 POMP Footwear. All rights reserved.</p>
   </div>
 </footer>
 
@@ -528,7 +660,6 @@ let cart = [];
 let activeModalProduct = null;
 const OWNER_EMAIL = 'owner@example.com';
 
-// AUTO-LOAD IMAGES FROM IMG FOLDER
 const imgFolder = 'img/';
 const imageFiles = [
   'Nike Dunk Retro Low #CosmicClay available now at both locations, online & the Solefly App $115 USD.jpeg',
@@ -641,7 +772,6 @@ function initHeroParallax() {
 }
 
 function initAutoLoadImages() {
-  // Load product images
   imageFiles.forEach((file, index) => {
     if (index < products.length) {
       const productId = index + 1;
@@ -709,30 +839,11 @@ function uploadProductImg(e, id) {
   reader.onload = ev => {
     uploadedImages[id] = ev.target.result;
     const product = products.find(p => p.id === id);
-    if (product?.custom) {
-      product.image = ev.target.result;
-      saveStoredProducts();
-    }
+    if (product?.custom) { product.image = ev.target.result; saveStoredProducts(); }
     const placeholder = document.getElementById('placeholder-'+id);
     const img = document.getElementById('img-'+id);
     if (placeholder) placeholder.style.display = 'none';
     if (img) { img.src = ev.target.result; img.style.display = 'block'; }
-  };
-  reader.readAsDataURL(file);
-}
-
-function loadHeroImg(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    document.querySelectorAll('.hero-shoe-primary').forEach(img => {
-      img.src = ev.target.result;
-      img.style.display = 'block';
-      img.style.width = '100%';
-      img.style.height = 'auto';
-      img.style.objectFit = 'contain';
-    });
   };
   reader.readAsDataURL(file);
 }
@@ -746,14 +857,8 @@ function openModal(id) {
   const mImg = document.getElementById('modalUploadedImg');
   const mPlaceholder = document.getElementById('modalPlaceholder');
   const imgSrc = productImage(p);
-  if (imgSrc) {
-    mImg.src = imgSrc;
-    mImg.style.display = 'block';
-    mPlaceholder.style.display = 'none';
-  } else {
-    mImg.style.display = 'none';
-    mPlaceholder.style.display = 'flex';
-  }
+  if (imgSrc) { mImg.src = imgSrc; mImg.style.display = 'block'; mPlaceholder.style.display = 'none'; }
+  else { mImg.style.display = 'none'; mPlaceholder.style.display = 'flex'; }
   document.getElementById('modal').classList.add('active');
 }
 function closeModal() { document.getElementById('modal').classList.remove('active'); }
@@ -764,27 +869,16 @@ function selectSize(btn) {
   document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 }
-function selectedSize() {
-  return document.querySelector('.size-btn.active')?.textContent || '41';
-}
+function selectedSize() { return document.querySelector('.size-btn.active')?.textContent || '41'; }
 function addItemToCart(product, size = '41') {
   if (!product) return;
   const existing = cart.find(item => item.id === product.id && item.size === size);
   if (existing) existing.qty += 1;
   else cart.push({ id: product.id, size, qty: 1 });
-  saveCart();
-  updateCart();
+  saveCart(); updateCart();
 }
-function addToCart() {
-  addItemToCart(activeModalProduct, selectedSize());
-  showToast('Added to bag!');
-  closeModal();
-}
-function quickAdd(id) {
-  const p = products.find(x => x.id === id);
-  addItemToCart(p, '41');
-  showToast(p.name + ' added to bag');
-}
+function addToCart() { addItemToCart(activeModalProduct, selectedSize()); showToast('Added to bag!'); closeModal(); }
+function quickAdd(id) { const p = products.find(x => x.id === id); addItemToCart(p, '41'); showToast(p.name + ' added to bag'); }
 function updateCart() {
   const count = cart.reduce((sum, item) => sum + item.qty, 0);
   document.getElementById('cartBtn').textContent = 'Bag (' + count + ')';
@@ -793,8 +887,7 @@ function updateCart() {
 function changeQty(index, delta) {
   cart[index].qty += delta;
   if (cart[index].qty <= 0) cart.splice(index, 1);
-  saveCart();
-  updateCart();
+  saveCart(); updateCart();
 }
 function cartTotal() {
   return cart.reduce((sum, item) => {
@@ -812,75 +905,59 @@ function renderCart() {
     list.innerHTML = cart.map((item, index) => {
       const p = products.find(product => product.id === item.id);
       if (!p) return '';
-      return `
-        <div class="cart-line">
-          <img class="cart-thumb" src="${productImage(p)}" alt="${p.name}">
-          <div>
-            <strong>${p.name}</strong>
-            <div class="line-meta">${p.brand}<br>Size ${item.size} · ${p.price}</div>
-          </div>
-          <div class="qty-controls">
-            <button class="qty-btn" onclick="changeQty(${index},-1)">−</button>
-            <span>${item.qty}</span>
-            <button class="qty-btn" onclick="changeQty(${index},1)">+</button>
-          </div>
+      return `<div class="cart-line">
+        <img class="cart-thumb" src="${productImage(p)}" alt="${p.name}">
+        <div><strong>${p.name}</strong><div class="line-meta">${p.brand}<br>Size ${item.size} · ${p.price}</div></div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(${index},-1)">−</button>
+          <span>${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${index},1)">+</button>
         </div>
-      `;
+      </div>`;
     }).join('');
   }
   total.textContent = formatNaira(cartTotal());
 }
-function openCart() {
-  renderCart();
-  document.getElementById('cartModal').classList.add('active');
-}
-function closeCart() {
-  document.getElementById('cartModal').classList.remove('active');
-}
+function openCart() { renderCart(); document.getElementById('cartModal').classList.add('active'); }
+function closeCart() { document.getElementById('cartModal').classList.remove('active'); }
 function showToast(msg) {
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
-function setChip(text) {
-  document.getElementById('aiQuery').value = text;
-  document.getElementById('aiQuery').focus();
-}
+function setChip(text) { document.getElementById('aiQuery').value = text; document.getElementById('aiQuery').focus(); }
 
 function setPage(activePage) {
   document.querySelectorAll('.app-page').forEach(page => page.classList.remove('active'));
   document.querySelectorAll('.home-only').forEach(el => el.style.display = activePage ? 'none' : '');
-  if (activePage) {
-    document.getElementById(activePage).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  if (activePage) { document.getElementById(activePage).classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
 }
-function showHome() {
-  setPage(null);
-  history.replaceState(null, '', location.pathname);
-  renderProducts();
+function showHome() { setPage(null); history.replaceState(null, '', location.pathname); renderProducts(); }
+function showViewAll() { renderProducts(); setPage('viewAllPage'); history.replaceState(null, '', '#catalog'); }
+
+function filterProducts(searchTerm) {
+  const search = searchTerm.toLowerCase().trim();
+  const resultsDiv = document.getElementById('searchResults');
+  const allGrid = document.getElementById('allProductsGrid');
+  if (!search) { resultsDiv.textContent = ''; allGrid.innerHTML = products.map(productCardMarkup).join(''); return; }
+  const filtered = products.filter(p => p.name.toLowerCase().includes(search) || p.brand.toLowerCase().includes(search) || p.badge?.toLowerCase().includes(search) || (p.price && p.price.toLowerCase().includes(search)));
+  resultsDiv.textContent = filtered.length > 0 ? `Found ${filtered.length} product${filtered.length !== 1 ? 's' : ''}` : 'No products found';
+  allGrid.innerHTML = filtered.length > 0 ? filtered.map(productCardMarkup).join('') : '<div style="grid-column:1/-1; padding: 2rem; text-align: center; color: rgba(249,246,241,0.5);">No shoes match your search. Try different keywords!</div>';
 }
-function showViewAll() {
-  renderProducts();
-  setPage('viewAllPage');
-  history.replaceState(null, '', '#catalog');
-}
-function orderSummary(order) {
-  return order.items.map(item => `${item.qty} x ${item.name} (${item.size}) - ${item.price}`).join('\n');
-}
-function renderAdminOrders() {
-  // Removed - moved to admin.html
-}
+
+function handleSearchInput(val) { filterProducts(val); }
+function searchProducts() { filterProducts(document.getElementById('searchInput').value); }
+function updatePriceFilter(val) { document.getElementById('priceMax').textContent = val; }
+function resetFilters() { document.getElementById('priceSlider').value = 120000; document.getElementById('priceMax').textContent = '120000'; document.getElementById('searchInput').value = ''; filterProducts(''); }
+function applySort(val) { /* sort logic */ }
+
 function initCheckout() {
   const form = document.getElementById('checkoutForm');
   if (!form) return;
   form.addEventListener('submit', event => {
     event.preventDefault();
-    if (!cart.length) {
-      showToast('Your bag is empty');
-      return;
-    }
+    if (!cart.length) { showToast('Your bag is empty'); return; }
     const customer = {
       name: document.getElementById('customerName').value.trim(),
       email: document.getElementById('customerEmail').value.trim(),
@@ -888,58 +965,44 @@ function initCheckout() {
       address: document.getElementById('customerAddress').value.trim()
     };
     const order = {
-      id: 'POMP-' + Date.now(),
-      customer,
-      total: cartTotal(),
+      id: 'POMP-' + Date.now(), customer, total: cartTotal(),
       createdAt: new Date().toLocaleString(),
       items: cart.map(item => {
         const product = products.find(p => p.id === item.id);
         return { id: item.id, name: product?.name || 'Product', brand: product?.brand || '', price: product?.price || '', size: item.size, qty: item.qty };
       })
     };
-    const orders = getOrders();
-    orders.push(order);
-    saveOrders(orders);
-
-    const body = `New POMP order: ${order.id}\n\nCustomer\n${customer.name}\n${customer.email}\n${customer.phone}\n${customer.address}\n\nItems\n${orderSummary(order)}\n\nTotal: ${formatNaira(order.total)}\n\nNo payment has been collected. Contact the customer to confirm delivery.`;
+    const orders = getOrders(); orders.push(order); saveOrders(orders);
+    const body = `New POMP order: ${order.id}\n\nCustomer\n${customer.name}\n${customer.email}\n${customer.phone}\n${customer.address}\n\nTotal: ${formatNaira(order.total)}\n\nNo payment has been collected.`;
     window.location.href = `mailto:${OWNER_EMAIL}?cc=${encodeURIComponent(customer.email)}&subject=${encodeURIComponent('POMP Order ' + order.id)}&body=${encodeURIComponent(body)}`;
-
-    cart = [];
-    saveCart();
-    updateCart();
-    closeCart();
-    form.reset();
+    cart = []; saveCart(); updateCart(); closeCart(); form.reset();
     showToast('Order saved and email draft opened');
   });
 }
-function initAdminForm() {
-  // Removed - moved to admin.html
-}
+
 function initRoute() {
-  if (location.hash === '#admin') showAdmin();
-  else if (location.hash === '#catalog') showViewAll();
+  if (location.hash === '#catalog') showViewAll();
 }
 
 // AI STYLIST
 const aiResponses = {
   keywords: [
-    { keys: ['owambe','wedding','occasion','party','event','formal'], reply: `For an owambe or formal event, I'd recommend our **Velour Phantom** (₦87,500) or the **Noir Crest** (₦95,000) — both are from our Luxe line, crafted for occasions that demand presence. The Silk Stiletto (₦110,000) is also a head-turner for women. Would you like to know more about any of these?` },
-    { keys: ['cheap','budget','affordable','under','₦30','30000','low'], reply: `Great value picks for you: the **Urban Mule** is currently on sale at ₦28,000 (was ₦38,000) — super versatile for everyday wear. The **Drift Runner** is also discounted at ₦35,000. Both are excellent quality without the premium price tag.` },
-    { keys: ['gym','running','sport','athletic','workout','training'], reply: `For gym and running, the **Aero Force 1** (₦42,000) and **Cloud Sole X** (₦55,000) from our POMP Sport line are built for performance — cushioned soles, breathable uppers, and great lateral support. The **Summit Hike Pro** is also brilliant for trail runs.` },
-    { keys: ['street','streetwear','casual','sneaker','everyday'], reply: `Our Street line is perfect for you. The **Drift Runner** has that clean low-profile streetwear look, and the **Urban Mule** pairs effortlessly with everything. Both under ₦50,000 and always on trend.` },
-    { keys: ['wide','wide-fit','wide fit','broad'], reply: `We carry wide-fit options in the **Aero Force 1** and **Cloud Sole X** lines — just select your size in the product page and look for the "W" sizing. I'd recommend going half a size up if you're between sizes.` },
-    { keys: ['new','latest','drop','arrival','fresh','recent'], reply: `Just dropped this week: **Aero Force 1**, **Cloud Sole X**, and the **Summit Hike Pro**. Our new Friday drops usually sell out fast — I'd recommend adding to your bag quickly, especially the limited-edition **Silk Stiletto** and **Noir Crest**.` },
-    { keys: ['white','clean','minimalist','office','work'], reply: `For a clean office-ready look, the **Cloud Sole X** in white is hard to beat. It's sleek, cushioned, and pairs well with both smart-casual and formal outfits. The **Velour Phantom** is another excellent choice if you want something more refined.` },
-    { keys: ['women','female','ladies','her','heels'], reply: `Our women's highlights right now: the **Silk Stiletto** (₦110,000) for maximum impact, the **Noir Crest** for elegant versatility, and the **Urban Mule** for comfortable everyday wear. All available in sizes 36–42.` },
-    { keys: ['men','male','guys','his'], reply: `Top picks for men: the **Velour Phantom** for a sharp luxury look, **Aero Force 1** for everyday sport style, and the **Summit Hike Pro** if you want rugged adventure vibes. All in sizes 40–46.` },
+    { keys: ['owambe','wedding','occasion','party','event','formal'], reply: `For an owambe or formal event, I'd recommend our **Velour Phantom** (₦87,500) or the **Noir Crest** (₦95,000) — both are from our Luxe line, crafted for occasions that demand presence. The **Silk Stiletto** (₦110,000) is also a head-turner. Would you like to know more?` },
+    { keys: ['cheap','budget','affordable','under','₦30','30000','low'], reply: `Great value picks: the **Urban Mule** is on sale at ₦28,000 (was ₦38,000) — super versatile. The **Drift Runner** is also discounted at ₦35,000. Both are excellent quality without the premium price tag.` },
+    { keys: ['gym','running','sport','athletic','workout','training'], reply: `For gym and running, the **Aero Force 1** (₦42,000) and **Cloud Sole X** (₦55,000) from our Sport line are built for performance — cushioned soles, breathable uppers, and great support.` },
+    { keys: ['street','streetwear','casual','sneaker','everyday'], reply: `Our Street line is perfect for you. The **Drift Runner** has that clean low-profile streetwear look, and the **Urban Mule** pairs effortlessly with everything. Both under ₦50,000.` },
+    { keys: ['wide','wide-fit','wide fit','broad'], reply: `We carry wide-fit options in the **Aero Force 1** and **Cloud Sole X** lines. I'd recommend going half a size up if you're between sizes.` },
+    { keys: ['new','latest','drop','arrival','fresh','recent'], reply: `Just dropped: **Aero Force 1**, **Cloud Sole X**, and the **Summit Hike Pro**. Our Friday drops sell out fast — the limited-edition **Silk Stiletto** and **Noir Crest** especially.` },
+    { keys: ['white','clean','minimalist','office','work'], reply: `For a clean office-ready look, the **Cloud Sole X** in white is hard to beat. The **Velour Phantom** is another excellent choice if you want something more refined.` },
+    { keys: ['women','female','ladies','her','heels'], reply: `Women's highlights: the **Silk Stiletto** (₦110,000) for maximum impact, the **Noir Crest** for elegant versatility, and the **Urban Mule** for comfortable everyday wear.` },
+    { keys: ['men','male','guys','his'], reply: `Top picks for men: the **Velour Phantom** for a sharp luxury look, **Aero Force 1** for everyday sport style, and the **Summit Hike Pro** for rugged adventure vibes.` },
   ],
   fallback: [
-    `I love that question! Based on what's trending right now at POMP, I'd suggest exploring our **Velour Phantom** and **Aero Force 1** — they're both getting a lot of love this season. Want me to narrow it down by price or style?`,
-    `Great taste! Let me point you toward a few current favourites: the **Drift Runner** for casual days, the **Noir Crest** for elevated occasions, and the **Cloud Sole X** for everyday comfort. Which vibe fits you best?`,
-    `Here's my honest take — it depends on what you're pairing them with. Tell me more about the look you're going for and I'll get more specific. In the meantime, our **Bestseller** picks are the **Velour Phantom** and **Silk Stiletto**.`,
+    `I love that question! Based on what's trending now at POMP, I'd suggest the **Velour Phantom** and **Aero Force 1** — they're both getting a lot of love this season. Want me to narrow it down by price or style?`,
+    `Great taste! The **Drift Runner** for casual days, the **Noir Crest** for elevated occasions, and the **Cloud Sole X** for everyday comfort. Which vibe fits you best?`,
+    `Tell me more about the look you're going for and I'll get more specific. In the meantime, our Bestsellers are the **Velour Phantom** and **Silk Stiletto**.`,
   ]
 };
-
 let fallbackIndex = 0;
 
 function getAIReply(query) {
@@ -965,189 +1028,68 @@ function appendMessage(role, text) {
 function showTyping() {
   const win = document.getElementById('chatWindow');
   const div = document.createElement('div');
-  div.className = 'chat-msg ai';
-  div.id = 'typingIndicator';
+  div.className = 'chat-msg ai'; div.id = 'typingIndicator';
   div.innerHTML = '<div class="chat-avatar ai">P</div><div class="chat-bubble chat-typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
-  win.appendChild(div);
-  win.scrollTop = win.scrollHeight;
+  win.appendChild(div); win.scrollTop = win.scrollHeight;
 }
-
-function removeTyping() {
-  const t = document.getElementById('typingIndicator');
-  if (t) t.remove();
-}
+function removeTyping() { const t = document.getElementById('typingIndicator'); if (t) t.remove(); }
 
 async function askAI() {
   const input = document.getElementById('aiQuery');
   const sendBtn = document.getElementById('aiSendBtn');
   const query = input.value.trim();
   if (!query) return;
-
   appendMessage('user', query);
-  input.value = '';
-  input.disabled = true;
-  sendBtn.disabled = true;
+  input.value = ''; input.disabled = true; sendBtn.disabled = true;
   showTyping();
-
   await new Promise(r => setTimeout(r, 900 + Math.random() * 600));
-
   let reply;
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: `You are POMP's AI shoe stylist. POMP is a premium Nigerian footwear brand. 
-Our catalog: Aero Force 1 (Sport, ₦42,000), Velour Phantom (Luxe, ₦87,500), Drift Runner (Street, ₦35,000), Noir Crest (Luxe, ₦95,000), Cloud Sole X (Sport, ₦55,000), Urban Mule (Street, ₦28,000), Summit Hike Pro (Active, ₦62,000), Silk Stiletto (Luxe, ₦110,000).
-Reply in 2-3 sentences max. Be warm, stylish, and helpful. Recommend specific shoes by name. No markdown headers. Use **bold** for shoe names only.`,
+        model: 'claude-sonnet-4-20250514', max_tokens: 1000,
+        system: `You are POMP's AI shoe stylist. POMP is a premium Nigerian footwear brand. Our catalog: Aero Force 1 (Sport, ₦42,000), Velour Phantom (Luxe, ₦87,500), Drift Runner (Street, ₦35,000), Noir Crest (Luxe, ₦95,000), Cloud Sole X (Sport, ₦55,000), Urban Mule (Street, ₦28,000), Summit Hike Pro (Active, ₦62,000), Silk Stiletto (Luxe, ₦110,000). Reply in 2-3 sentences max. Be warm, stylish, and helpful. Recommend specific shoes by name. No markdown headers. Use **bold** for shoe names only.`,
         messages: [{ role: 'user', content: query }]
       })
     });
     const data = await res.json();
     reply = data?.content?.[0]?.text || null;
   } catch(e) { reply = null; }
-
   removeTyping();
   if (!reply) reply = getAIReply(query);
   appendMessage('ai', reply);
-  
-  // Find and display matching products
   const q = query.toLowerCase();
-  const matchingProducts = products.filter(p => 
-    p.name.toLowerCase().includes(q) || 
-    p.brand.toLowerCase().includes(q) ||
-    reply.toLowerCase().includes(p.name.toLowerCase())
-  );
-  
-  if (matchingProducts.length > 0) {
-    appendProductsToChat(matchingProducts);
-  }
-  
-  input.disabled = false;
-  sendBtn.disabled = false;
-  input.focus();
+  const matchingProducts = products.filter(p => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || reply.toLowerCase().includes(p.name.toLowerCase()));
+  if (matchingProducts.length > 0) appendProductsToChat(matchingProducts);
+  input.disabled = false; sendBtn.disabled = false; input.focus();
 }
 
-// SEARCH FUNCTION
-function filterProducts(searchTerm) {
-  const search = searchTerm.toLowerCase().trim();
-  const resultsDiv = document.getElementById('searchResults');
-  const allGrid = document.getElementById('allProductsGrid');
-  
-  if (!search) {
-    resultsDiv.textContent = '';
-    allGrid.innerHTML = products.map(productCardMarkup).join('');
-    return;
-  }
-  
-  const filtered = products.filter(p => 
-    p.name.toLowerCase().includes(search) || 
-    p.brand.toLowerCase().includes(search) ||
-    p.badge?.toLowerCase().includes(search) ||
-    (p.price && p.price.toLowerCase().includes(search))
-  );
-  
-  resultsDiv.textContent = filtered.length > 0 ? `Found ${filtered.length} product${filtered.length !== 1 ? 's' : ''}` : 'No products found';
-  allGrid.innerHTML = filtered.length > 0 ? filtered.map(productCardMarkup).join('') : '<div style="grid-column:1/-1; padding: 2rem; text-align: center; color: rgba(249,246,241,0.5);">No shoes match your search. Try different keywords!</div>';
-}
-
-// REAL-TIME VALIDATIONS
-function setupFormValidations() {
-  // Admin form validations
-  const adminForm = document.getElementById('adminProductForm');
-  if (adminForm) {
-    const adminName = document.getElementById('adminName');
-    const adminPrice = document.getElementById('adminPrice');
-    const adminBrand = document.getElementById('adminBrand');
-    
-    if (adminName) adminName.addEventListener('input', e => {
-      if (e.target.value.trim().length < 3) {
-        e.target.style.borderColor = 'rgba(255,100,100,0.5)';
-      } else {
-        e.target.style.borderColor = 'rgba(201,168,76,0.26)';
-      }
-    });
-    
-    if (adminPrice) adminPrice.addEventListener('input', e => {
-      const val = e.target.value.replace(/[^\d]/g, '');
-      if (!val || val < 1000) {
-        e.target.style.borderColor = 'rgba(255,100,100,0.5)';
-      } else {
-        e.target.style.borderColor = 'rgba(201,168,76,0.26)';
-      }
-    });
-    
-    if (adminBrand) adminBrand.addEventListener('input', e => {
-      if (e.target.value.trim().length < 2) {
-        e.target.style.borderColor = 'rgba(255,100,100,0.5)';
-      } else {
-        e.target.style.borderColor = 'rgba(201,168,76,0.26)';
-      }
-    });
-  }
-  
-  // Checkout form validations
-  const checkoutForm = document.getElementById('checkoutForm');
-  if (checkoutForm) {
-    const customerName = document.getElementById('customerName');
-    const customerEmail = document.getElementById('customerEmail');
-    const customerPhone = document.getElementById('customerPhone');
-    const customerAddress = document.getElementById('customerAddress');
-    
-    if (customerName) customerName.addEventListener('input', e => {
-      if (e.target.value.trim().length < 2) {
-        e.target.style.borderColor = 'rgba(255,100,100,0.5)';
-      } else {
-        e.target.style.borderColor = 'rgba(201,168,76,0.26)';
-      }
-    });
-    
-    if (customerEmail) customerEmail.addEventListener('input', e => {
-      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
-      if (!isValid && e.target.value) {
-        e.target.style.borderColor = 'rgba(255,100,100,0.5)';
-      } else {
-        e.target.style.borderColor = 'rgba(201,168,76,0.26)';
-      }
-    });
-    
-    if (customerPhone) customerPhone.addEventListener('input', e => {
-      const phoneRegex = /^[\d+\-() ]{7,}$/;
-      if (!phoneRegex.test(e.target.value) && e.target.value) {
-        e.target.style.borderColor = 'rgba(255,100,100,0.5)';
-      } else {
-        e.target.style.borderColor = 'rgba(201,168,76,0.26)';
-      }
-    });
-    
-    if (customerAddress) customerAddress.addEventListener('input', e => {
-      if (e.target.value.trim().length < 5) {
-        e.target.style.borderColor = 'rgba(255,100,100,0.5)';
-      } else {
-        e.target.style.borderColor = 'rgba(201,168,76,0.26)';
-      }
-    });
-  }
-}
-
-// AI: SHOW MATCHING PRODUCTS
 function appendProductsToChat(matchingProducts) {
   const win = document.getElementById('chatWindow');
-  if (!matchingProducts || !matchingProducts.length) return;
-  
+  if (!matchingProducts?.length) return;
   const div = document.createElement('div');
   div.style.cssText = 'margin: 0.8rem 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;';
   div.innerHTML = matchingProducts.slice(0, 4).map(p => `
-    <div style="background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; padding: 0.8rem; cursor: pointer; text-align: center; transition: all 0.2s;" onclick="openModal(${p.id})" title="Click to view">
+    <div style="background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; padding: 0.8rem; cursor: pointer; text-align: center; transition: all 0.2s;" onclick="openModal(${p.id})">
       <img src="${productImage(p)}" alt="${p.name}" style="width: 100%; height: 60px; object-fit: cover; border-radius: 2px; margin-bottom: 0.4rem;">
       <div style="font-size: 0.7rem; font-weight: 500; color: var(--gold);">${p.name}</div>
       <div style="font-size: 0.65rem; color: rgba(249,246,241,0.7);">${p.price}</div>
     </div>
   `).join('');
-  win.appendChild(div);
-  win.scrollTop = win.scrollHeight;
+  win.appendChild(div); win.scrollTop = win.scrollHeight;
+}
+
+function setupFormValidations() {
+  const customerName = document.getElementById('customerName');
+  const customerEmail = document.getElementById('customerEmail');
+  const customerPhone = document.getElementById('customerPhone');
+  const customerAddress = document.getElementById('customerAddress');
+  if (customerName) customerName.addEventListener('input', e => { e.target.style.borderColor = e.target.value.trim().length < 2 ? 'rgba(255,100,100,0.5)' : 'rgba(201,168,76,0.26)'; });
+  if (customerEmail) customerEmail.addEventListener('input', e => { const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value); e.target.style.borderColor = (!ok && e.target.value) ? 'rgba(255,100,100,0.5)' : 'rgba(201,168,76,0.26)'; });
+  if (customerPhone) customerPhone.addEventListener('input', e => { const ok = /^[\d+\-() ]{7,}$/.test(e.target.value); e.target.style.borderColor = (!ok && e.target.value) ? 'rgba(255,100,100,0.5)' : 'rgba(201,168,76,0.26)'; });
+  if (customerAddress) customerAddress.addEventListener('input', e => { e.target.style.borderColor = e.target.value.trim().length < 5 ? 'rgba(255,100,100,0.5)' : 'rgba(201,168,76,0.26)'; });
 }
 
 loadStoredProducts();
